@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@types/node": "^18.7.13"
+    "@types/node": "^18.7.14"
   },
   "dependencies": {
     "@datocms/cma-client-node": "^1.1.1"
