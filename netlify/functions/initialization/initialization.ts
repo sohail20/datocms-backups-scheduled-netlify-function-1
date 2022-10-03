@@ -14,7 +14,7 @@ export const handler: Handler = async (event, context) => {
 
   const previousUnusedDailyBackup = environments.find(
     (environment) =>
-      environment.id.match("backup-daily") && !environment.meta.primary
+      environment.id.match("backup-plugin-daily") && !environment.meta.primary
   );
 
   if (previousUnusedDailyBackup) {
@@ -22,7 +22,7 @@ export const handler: Handler = async (event, context) => {
   }
 
   await client.environments.fork(mainEnvironment!.id, {
-    id: `backup-daily-${new Date().toISOString().split("T")[0]}`,
+    id: `backup-plugin-daily-${new Date().toISOString().split("T")[0]}`,
   });
 
   const previousUnusedWeeklyBackup = environments.find(
