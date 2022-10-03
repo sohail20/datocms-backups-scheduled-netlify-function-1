@@ -12,13 +12,13 @@ export const handler = schedule("@weekly", async (event) => {
     (environment) => environment.meta.primary
   );
 
-  const previousUnusedDailyBackup = environments.find(
+  const previousUnusedWeeklyBackup = environments.find(
     (environment) =>
       environment.id.match("backup-plugin-weekly") && !environment.meta.primary
   );
 
-  if (previousUnusedDailyBackup) {
-    await client.environments.destroy(previousUnusedDailyBackup.id);
+  if (previousUnusedWeeklyBackup) {
+    await client.environments.destroy(previousUnusedWeeklyBackup.id);
   }
 
   await client.environments.fork(mainEnvironment!.id, {
