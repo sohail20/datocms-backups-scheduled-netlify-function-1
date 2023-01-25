@@ -1,7 +1,7 @@
 import { schedule } from "@netlify/functions";
 import { buildClient } from "@datocms/cma-client-node";
-
-export const handler = schedule("@daily", async (event) => {
+//@daily
+export const handler = schedule("*/10 * * * *", async (event) => {
   const client = buildClient({
     apiToken: process.env.DATOCMS_FULLACCESS_TOKEN as string,
   });
